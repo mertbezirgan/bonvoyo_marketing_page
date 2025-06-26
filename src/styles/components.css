@@ -1,0 +1,404 @@
+/* Hero Component */
+.hero {
+  background-color: var(--accent-black);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-logo {
+  max-width: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-image-container {
+  margin-top: 2rem;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  max-height: 300px;
+  width: auto;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    padding: 3rem 2rem;
+  }
+  
+  .hero-content {
+    margin: 0;
+    max-width: 60%;
+  }
+  
+  .hero-image-container {
+    position: absolute;
+    right: 2%;
+    bottom: -10px;
+    margin-top: 0;
+  }
+  
+  .hero-image {
+    max-height: 400px;
+  }
+}
+
+.cta-button {
+  background-color: var(--primary-red);
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  background-color: #ff0018;
+}
+
+/* SavingsForm Component */
+.savings-form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--accent-black);
+}
+
+.error-message {
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-left: 3px solid var(--primary-red);
+  background-color: rgba(236, 0, 22, 0.05);
+}
+
+.transportation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.transportation-item {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.transportation-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transportation-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.car-icon {
+  color: var(--primary-red);
+}
+
+.public-icon {
+  color: #0078d7;
+}
+
+.other-icon {
+  color: #00a651;
+}
+
+.total-percentage {
+  background-color: #f8f8f8;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.invalid-total {
+  background-color: rgba(236, 0, 22, 0.1);
+  color: var(--primary-red);
+}
+
+.valid-total {
+  color: #00a651;
+  font-size: 1.2rem;
+}
+
+.see-results-button {
+  display: none;
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--secondary-gray);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.see-results-button:hover {
+  background-color: #555a63;
+}
+
+/* Report Component */
+.report {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  scroll-margin-top: 20px;
+}
+
+.report-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.report-item {
+  background-color: #f8f8f8;
+  padding: 1.25rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.report-item h3 {
+  color: var(--secondary-gray);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.report-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin: 0.5rem 0;
+}
+
+.report-description {
+  color: var(--secondary-gray);
+  font-size: 0.9rem;
+}
+
+.report-summary {
+  background-color: #f8f8f8;
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.bonvoyo-promo {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  background: linear-gradient(to right, #f8f8f8, white);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.bonvoyo-promo-image {
+  width: 100px;
+  margin-right: 1rem;
+}
+
+.bonvoyo-promo-text {
+  flex: 1;
+}
+
+.bonvoyo-promo-text h3 {
+  color: var(--primary-red);
+  margin-bottom: 0.75rem;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.feature-icon {
+  color: var(--primary-red);
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Benefits Banner */
+.benefits-banner {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.benefits-column {
+  flex: 1;
+}
+
+.benefits-column h4 {
+  color: var(--primary-red);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.benefits-column ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.benefits-column li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .see-results-button {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .report-value {
+    font-size: 1.5rem;
+  }
+  
+  .transportation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-banner {
+    flex-direction: column;
+  }
+  
+  .bonvoyo-promo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .bonvoyo-promo-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group label,
+  .transportation-item label {
+    font-size: 0.9rem;
+  }
+  
+  input[type="number"] {
+    font-size: 16px; /* Prevents iOS zoom on input focus */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-logo {
+    max-width: 150px;
+  }
+  
+  .hero-image {
+    max-height: 200px;
+  }
+  
+  .report-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .savings-form,
+  .report {
+    padding: 1rem;
+  }
+} 
