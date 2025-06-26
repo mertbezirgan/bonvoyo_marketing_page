@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useLanguage } from '../utils/LanguageContext';
+import translations from '../utils/translations';
 
 /**
  * Form component for collecting user inputs to calculate savings
@@ -12,6 +14,8 @@ const SavingsForm = ({ onFormChange }) => {
   const [error, setError] = useState('');
   const [totalPercent, setTotalPercent] = useState(100);
   const resultsSectionRef = useRef(null);
+  const { language } = useLanguage();
+  const t = translations.form;
 
   // Validate that percentages sum to 100%
   useEffect(() => {
@@ -19,24 +23,27 @@ const SavingsForm = ({ onFormChange }) => {
     setTotalPercent(total);
     
     if (total !== 100) {
-      setError(`Transportation percentages must sum to 100%. Current total: ${total}%`);
+      setError(`${t.error[language]} ${total}%`);
     } else {
       setError('');
     }
-  }, [percentCar, percentPublic, percentOther]);
+  }, [percentCar, percentPublic, percentOther, language, t.error]);
+
+  // Create a memoized form data object to prevent unnecessary updates
+  const formData = useCallback(() => ({
+    employees,
+    percentCar,
+    percentPublic,
+    percentOther,
+    budget
+  }), [employees, budget, percentCar, percentPublic, percentOther]);
 
   // Separate effect to notify parent of form changes without causing infinite loop
   useEffect(() => {
     if (totalPercent === 100) {
-      onFormChange({
-        employees,
-        percentCar,
-        percentPublic,
-        percentOther,
-        budget
-      });
+      onFormChange(formData());
     }
-  }, [employees, budget, percentCar, percentPublic, percentOther, totalPercent, onFormChange]);
+  }, [totalPercent, onFormChange, formData]);
 
   // Handle change for percentages without auto-adjusting other values
   const handlePercentChange = (setter, value, field) => {
@@ -54,29 +61,29 @@ const SavingsForm = ({ onFormChange }) => {
 
   return (
     <div className="savings-form">
-      <h2>Calculate Your Potential Savings with Bonvoyo</h2>
+      <h2>{t.title[language]}</h2>
       
       <div className="benefits-banner">
         <div className="benefits-column">
-          <h4>For Companies</h4>
+          <h4>{t.forCompanies[language]}</h4>
           <ul>
-            <li>Attract & retain top talent</li>
-            <li>Reduce fleet management costs</li>
-            <li>Automate tax-compliant billing</li>
+            {t.companyBenefits[language].map((benefit, index) => (
+              <li key={index}>{benefit}</li>
+            ))}
           </ul>
         </div>
         <div className="benefits-column">
-          <h4>For Employees</h4>
+          <h4>{t.forEmployees[language]}</h4>
           <ul>
-            <li>Flexible transport choices</li>
-            <li>Tax-optimized benefit value</li>
-            <li>Seamless booking experience</li>
+            {t.employeeBenefits[language].map((benefit, index) => (
+              <li key={index}>{benefit}</li>
+            ))}
           </ul>
         </div>
       </div>
       
       <div className="form-group">
-        <label htmlFor="employees">Number of Employees</label>
+        <label htmlFor="employees">{t.employees[language]}</label>
         <input
           id="employees"
           type="number"
@@ -87,7 +94,7 @@ const SavingsForm = ({ onFormChange }) => {
       </div>
       
       <div className="form-group">
-        <label htmlFor="budget">Monthly Budget per Employee (€)</label>
+        <label htmlFor="budget">{t.budget[language]}</label>
         <input
           id="budget"
           type="number"
@@ -97,13 +104,13 @@ const SavingsForm = ({ onFormChange }) => {
         />
       </div>
       
-      <h3>Transportation Distribution</h3>
+      <h3>{t.transportation[language]}</h3>
       {error && <div className="error-message">{error}</div>}
       
       <div className="transportation-grid">
         <div className="transportation-item">
           <div className="transportation-icon car-icon">🚗</div>
-          <label htmlFor="percentCar">Car (%)</label>
+          <label htmlFor="percentCar">{t.car[language]}</label>
           <input
             id="percentCar"
             type="number"
@@ -116,7 +123,7 @@ const SavingsForm = ({ onFormChange }) => {
         
         <div className="transportation-item">
           <div className="transportation-icon public-icon">🚆</div>
-          <label htmlFor="percentPublic">Public Transport (%)</label>
+          <label htmlFor="percentPublic">{t.publicTransport[language]}</label>
           <input
             id="percentPublic"
             type="number"
@@ -129,7 +136,7 @@ const SavingsForm = ({ onFormChange }) => {
         
         <div className="transportation-item">
           <div className="transportation-icon other-icon">🚲</div>
-          <label htmlFor="percentOther">Other (%)</label>
+          <label htmlFor="percentOther">{t.other[language]}</label>
           <input
             id="percentOther"
             type="number"
@@ -142,14 +149,14 @@ const SavingsForm = ({ onFormChange }) => {
       </div>
       
       <div className={`total-percentage ${totalPercent !== 100 ? 'invalid-total' : ''}`}>
-        <span>Total: {totalPercent}%</span>
+        <span>{t.total[language]}: {totalPercent}%</span>
         {totalPercent === 100 && 
           <span className="valid-total">✓</span>
         }
       </div>
       
       <button className="see-results-button" onClick={scrollToResults}>
-        See Your Results
+        {t.seeResults[language]}
       </button>
     </div>
   );

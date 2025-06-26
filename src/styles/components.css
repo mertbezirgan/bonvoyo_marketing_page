@@ -374,6 +374,13 @@
   input[type="number"] {
     font-size: 16px; /* Prevents iOS zoom on input focus */
   }
+  
+  .language-switcher {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -401,4 +408,32 @@
   .report {
     padding: 1rem;
   }
+}
+
+/* Language Switcher */
+.language-switcher {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.2s, color 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.language-switcher:hover {
+  background-color: white;
+  color: var(--accent-black);
+}
+
+.language-label {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
 } 

@@ -6,12 +6,16 @@ import {
   TRIPS_PER_QUARTER 
 } from '../utils/constants';
 import bonvoyoLogo from '../assets/Bonvoyo_Logo.png';
+import { useLanguage } from '../utils/LanguageContext';
+import translations from '../utils/translations';
 
 /**
  * Component to display calculated savings based on form inputs
  */
 const Report = ({ formData }) => {
   const { employees, percentCar, percentPublic, percentOther, budget } = formData;
+  const { language } = useLanguage();
+  const t = translations.report;
   
   // Calculate invoices per quarter (3 per employee)
   const invoicesPerQuarter = employees * 3;
@@ -35,64 +39,55 @@ const Report = ({ formData }) => {
   
   return (
     <div className="report" id="results-section">
-      <h2>Your Quarterly Savings with Bonvoyo</h2>
+      <h2>{t.title[language]}</h2>
       
       <div className="report-card">
         <div className="report-item">
-          <h3>Invoices Processed</h3>
+          <h3>{t.invoices[language]}</h3>
           <p className="report-value">{invoicesPerQuarter.toLocaleString()}</p>
-          <p className="report-description">automated & tax-optimized</p>
+          <p className="report-description">{t.invoicesDesc[language]}</p>
         </div>
         
         <div className="report-item">
-          <h3>Time Saved</h3>
+          <h3>{t.time[language]}</h3>
           <p className="report-value">{timeSaved.toLocaleString(undefined, { maximumFractionDigits: 1 })}</p>
-          <p className="report-description">HR administrative hours</p>
+          <p className="report-description">{t.timeDesc[language]}</p>
         </div>
         
         <div className="report-item">
-          <h3>CO₂ Reduction</h3>
+          <h3>{t.co2[language]}</h3>
           <p className="report-value">
             {(co2Reduction / 1000).toLocaleString(undefined, { maximumFractionDigits: 2 })}
           </p>
-          <p className="report-description">kg CO₂-eq for ESG reporting</p>
+          <p className="report-description">{t.co2Desc[language]}</p>
         </div>
         
         <div className="report-item">
-          <h3>Budget Optimization</h3>
+          <h3>{t.budget[language]}</h3>
           <p className="report-value">€{quarterlyBudget.toLocaleString()}</p>
-          <p className="report-description">tax-optimized mobility spend</p>
+          <p className="report-description">{t.budgetDesc[language]}</p>
         </div>
       </div>
       
       <div className="report-summary">
         <p>
-          By implementing Bonvoyo's mobility budget solution, you're reducing CO₂ emissions by approximately{' '}
-          <strong>{co2ReductionPercentage.toFixed(1)}%</strong> while offering your employees flexible transport choices.
+          {t.summary[language]}{' '}
+          <strong>{co2ReductionPercentage.toFixed(1)}%</strong>{' '}
+          {t.summaryEnd[language]}
         </p>
       </div>
       
       <div className="bonvoyo-promo">
         <img src={bonvoyoLogo} alt="Bonvoyo Logo" className="bonvoyo-promo-image" />
         <div className="bonvoyo-promo-text">
-          <h3>Why Choose Bonvoyo?</h3>
+          <h3>{t.whyBonvoyo[language]}</h3>
           <div className="feature-list">
-            <div className="feature-item">
-              <span className="feature-icon">✓</span>
-              <span>Complete end-to-end mobility budget management</span>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">✓</span>
-              <span>Seamless integration with DB Navigator and partner apps</span>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">✓</span>
-              <span>GoBD-compliant & GDPR-secure data handling</span>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">✓</span>
-              <span>Automated tax optimization for maximum employee value</span>
-            </div>
+            {t.features[language].map((feature, index) => (
+              <div className="feature-item" key={index}>
+                <span className="feature-icon">✓</span>
+                <span>{feature}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -54,6 +54,14 @@
   padding: 0 1rem;
 }
 
+.language-switcher-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem;
+}
+
 .calculator-section {
   padding: 1rem 0;
 }
@@ -87,6 +95,10 @@
     margin-top: 1.5rem;
     padding: 1rem 0;
     font-size: 0.9rem;
+  }
+
+  .language-switcher-container {
+    padding: 0.75rem;
   }
 }
 

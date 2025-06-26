@@ -2,6 +2,9 @@ import { useState, useRef, useCallback } from 'react';
 import Hero from './components/Hero';
 import SavingsForm from './components/SavingsForm';
 import Report from './components/Report';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import { useLanguage } from './utils/LanguageContext';
+import translations from './utils/translations';
 import './styles/components.css';
 import './App.css';
 
@@ -15,6 +18,7 @@ function App() {
   });
   
   const calculatorRef = useRef(null);
+  const { language } = useLanguage();
   
   const handleFormChange = useCallback((data) => {
     setFormData(data);
@@ -26,6 +30,9 @@ function App() {
 
   return (
     <div className="app">
+      <div className="language-switcher-container">
+        <LanguageSwitcher />
+      </div>
       <Hero onCTAClick={scrollToCalculator} />
       
       <div className="container">
@@ -37,7 +44,7 @@ function App() {
         </div>
         
         <footer className="footer">
-          <p>© {new Date().getFullYear()} Bonvoyo by Deutsche Bahn. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {translations.footer.copyright[language]}</p>
         </footer>
       </div>
     </div>
