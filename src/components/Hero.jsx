@@ -6,7 +6,7 @@ import translations from '../utils/translations';
 /**
  * Hero section component with headline and CTA
  */
-const Hero = ({ onCTAClick }) => {
+const Hero = ({ onCTAClick, onContactClick }) => {
   const { language } = useLanguage();
   const t = translations.hero;
 
@@ -18,9 +18,14 @@ const Hero = ({ onCTAClick }) => {
         <p className="hero-subtitle">
           {t.subtitle[language]}
         </p>
-        <button className="cta-button" onClick={onCTAClick}>
-          {t.cta[language]}
-        </button>
+        <div className="hero-buttons">
+          <button className="cta-button" onClick={onCTAClick}>
+            {t.cta[language]}
+          </button>
+          <button className="contact-button" onClick={onContactClick}>
+            {t.contactButton[language]}
+          </button>
+        </div>
       </div>
       <div className="hero-image-container">
         <img src={smartphoneImage} alt="Bonvoyo App" className="hero-image" />

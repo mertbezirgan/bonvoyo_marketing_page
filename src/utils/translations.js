@@ -13,6 +13,10 @@ const translations = {
     cta: {
       en: 'Calculate Your Savings',
       de: 'Berechnen Sie Ihre Einsparungen'
+    },
+    contactButton: {
+      en: 'Contact Us',
+      de: 'Kontaktieren Sie uns'
     }
   },
   
@@ -155,6 +159,46 @@ const translations = {
         'GoBD-konforme & DSGVO-sichere Datenverarbeitung',
         'Automatisierte Steueroptimierung für maximalen Mitarbeiterwert'
       ]
+    }
+  },
+  
+  // Contact section
+  contact: {
+    title: {
+      en: 'Ready to Transform Your Mobility?',
+      de: 'Bereit, Ihre Mobilität zu transformieren?'
+    },
+    slogan: {
+      en: 'Mobility that wins: for the environment, companies, and employees.',
+      de: 'Mobilität, die gewinnt: für Umwelt, Unternehmen, und Mitarbeitende.'
+    },
+    subtitle: {
+      en: 'Start your journey to smarter, more sustainable corporate mobility today.',
+      de: 'Beginnen Sie noch heute Ihre Reise zu einer intelligenteren und nachhaltigeren Unternehmensmobilität.'
+    },
+    emailLabel: {
+      en: 'Company Email',
+      de: 'Firmen-E-Mail'
+    },
+    emailPlaceholder: {
+      en: 'Enter your company email',
+      de: 'Geben Sie Ihre Firmen-E-Mail ein'
+    },
+    emailError: {
+      en: 'Please enter a valid email address',
+      de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
+    },
+    submitButton: {
+      en: 'Get Started',
+      de: 'Jetzt starten'
+    },
+    thankYou: {
+      en: 'Thank you!',
+      de: 'Vielen Dank!'
+    },
+    confirmation: {
+      en: 'We\'ve received your request and will contact you soon to discuss how Bonvoyo can transform your corporate mobility.',
+      de: 'Wir haben Ihre Anfrage erhalten und werden Sie in Kürze kontaktieren, um zu besprechen, wie Bonvoyo Ihre Unternehmensmobilität transformieren kann.'
     }
   },
   

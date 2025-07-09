@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import Hero from './components/Hero';
 import SavingsForm from './components/SavingsForm';
 import Report from './components/Report';
+import ContactForm from './components/ContactForm';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import { useLanguage } from './utils/LanguageContext';
 import translations from './utils/translations';
@@ -18,8 +19,10 @@ function App() {
   });
   
   const calculatorRef = useRef(null);
+  const contactRef = useRef(null);
   const { language } = useLanguage();
   
+  // Use useCallback to memoize the function and prevent infinite loop
   const handleFormChange = useCallback((data) => {
     setFormData(data);
   }, []);
@@ -27,20 +30,28 @@ function App() {
   const scrollToCalculator = () => {
     calculatorRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+  
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="app">
       <div className="language-switcher-container">
         <LanguageSwitcher />
       </div>
-      <Hero onCTAClick={scrollToCalculator} />
+      <Hero onCTAClick={scrollToCalculator} onContactClick={scrollToContact} />
       
       <div className="container">
         <div className="calculator-section" ref={calculatorRef}>
           <div className="two-column-layout">
             <SavingsForm onFormChange={handleFormChange} />
-            <Report formData={formData} />
+            <Report formData={formData} onContactClick={scrollToContact} />
           </div>
+        </div>
+        
+        <div ref={contactRef}>
+          <ContactForm />
         </div>
         
         <footer className="footer">

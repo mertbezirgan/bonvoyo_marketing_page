@@ -12,7 +12,7 @@ import translations from '../utils/translations';
 /**
  * Component to display calculated savings based on form inputs
  */
-const Report = ({ formData }) => {
+const Report = ({ formData, onContactClick }) => {
   const { employees, percentCar, percentPublic, percentOther, budget } = formData;
   const { language } = useLanguage();
   const t = translations.report;
@@ -67,6 +67,12 @@ const Report = ({ formData }) => {
           <p className="report-value">€{quarterlyBudget.toLocaleString()}</p>
           <p className="report-description">{t.budgetDesc[language]}</p>
         </div>
+      </div>
+      
+      <div className="report-contact-button-container">
+        <button className="report-contact-button" onClick={onContactClick}>
+          {translations.hero.contactButton[language]}
+        </button>
       </div>
       
       <div className="report-summary">
