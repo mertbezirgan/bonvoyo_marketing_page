@@ -3,12 +3,12 @@ const translations = {
   // Hero section
   hero: {
     title: {
-      en: 'The Complete Mobility Budget Solution',
-      de: 'Die komplette Mobilitätsbudget-Lösung'
+      en: 'The Complete Mobility Budget Solution', 
+      de: 'Die ganzheitliche Mobilitätsbudget-Lösung'
     },
     subtitle: {
       en: 'Empower your employees with flexible transport choices while reducing costs, administrative overhead, and environmental impact. Germany\'s only end-to-end corporate mobility budget platform.',
-      de: 'Stärken Sie Ihre Mitarbeiter mit flexiblen Transportmöglichkeiten bei gleichzeitiger Reduzierung der Kosten, des Verwaltungsaufwands und der Umweltbelastung. Deutschlands einzige End-to-End-Plattform für Mobilitätsbudgets von Unternehmen.'
+      de: 'Stärken Sie Ihre Mitarbeitenden mit flexiblen Mobilitätslösungen – und reduzieren Sie gleichzeitig Kosten, Verwaltungsaufwand und CO₂-Emissionen. Deutschlands einzige End-to-End-Plattform für das Mobilitätsbudget von Unternehmen.'
     },
     cta: {
       en: 'Calculate Your Savings',
@@ -41,8 +41,8 @@ const translations = {
         'Automate tax-compliant billing'
       ],
       de: [
-        'Gewinnen & binden Sie Spitzentalente',
-        'Reduzieren Sie Fuhrparkkosten',
+        'Gewinnen & Halten Sie Spitzentalente',
+        'Optimieren Sie Fuhrparkkosten',
         'Automatisieren Sie steuerkonformes Abrechnen'
       ]
     },
@@ -76,7 +76,7 @@ const translations = {
     },
     publicTransport: {
       en: 'Public Transport (%)',
-      de: 'Öffentlicher Verkehr (%)'
+      de: 'Öffentliche Verkehrsmittel (%)'
     },
     other: {
       en: 'Other (%)',
@@ -88,11 +88,11 @@ const translations = {
     },
     error: {
       en: 'Transportation percentages must sum to 100%. Current total:',
-      de: 'Die Verkehrsprozentsätze müssen zusammen 100% ergeben. Aktuelle Summe:'
+      de: 'Die Anteile der Verkehrsmittel sollten in Summe 100 % ergeben. Aktuelle Summe:'
     },
     seeResults: {
       en: 'See Your Results',
-      de: 'Sehen Sie Ihre Ergebnisse'
+      de: 'Ihre Ergebnisse'
     }
   },
   
@@ -136,7 +136,7 @@ const translations = {
     },
     summary: {
       en: 'By implementing Bonvoyo\'s mobility budget solution, you\'re reducing CO₂ emissions by approximately',
-      de: 'Durch die Implementierung der Mobilitätsbudget-Lösung von Bonvoyo reduzieren Sie die CO₂-Emissionen um etwa'
+      de: 'Mit der Mobilitätsbudget-Lösung von Bonvoyo senken Sie Ihre CO₂-Emissionen nachhaltig um bis zu …'
     },
     summaryEnd: {
       en: 'while offering your employees flexible transport choices.',
@@ -154,7 +154,7 @@ const translations = {
         'Automated tax optimization for maximum employee value'
       ],
       de: [
-        'Komplette End-to-End-Verwaltung des Mobilitätsbudgets',
+        'Ganzheitliche End-to-End-Verwaltung des Mobilitätsbudgets',
         'Nahtlose Integration mit DB Navigator und Partner-Apps',
         'GoBD-konforme & DSGVO-sichere Datenverarbeitung',
         'Automatisierte Steueroptimierung für maximalen Mitarbeiterwert'
@@ -198,7 +198,7 @@ const translations = {
     },
     confirmation: {
       en: 'We\'ve received your request and will contact you soon to discuss how Bonvoyo can transform your corporate mobility.',
-      de: 'Wir haben Ihre Anfrage erhalten und werden Sie in Kürze kontaktieren, um zu besprechen, wie Bonvoyo Ihre Unternehmensmobilität transformieren kann.'
+      de: 'Vielen Dank für Ihre Anfrage – wir melden uns in Kürze bei Ihnen, um gemeinsam zu besprechen, wie Bonvoyo Ihre Unternehmensmobilität neu gestalten kann.'
     }
   },
   
